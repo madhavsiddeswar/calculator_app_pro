@@ -1,6 +1,14 @@
 
 from calculator.operations import Calculator
 
+import logging 
+
+logging.basicConfig(
+    filename="app.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 class CalculatorApp:
     def __init__(self):
         self.calculator = Calculator()
@@ -63,6 +71,7 @@ class CalculatorApp:
                 return
             
             print("Result: ", result)
+            logging.info(expression)
             self.history.append(expression)
 
         except ValueError:
